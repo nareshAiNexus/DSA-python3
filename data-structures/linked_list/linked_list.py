@@ -38,15 +38,22 @@ class Linkedlist:
         self.size += 1
 
     def add_element(self, element, position):
+        if position > self.size:
+            return 
+        if position == 0:
+            self.add_first(data)
         new_node = self.Node(element, None)
         tpointer = self.head
-        i = 1
-        while i < position:
+
+        for i in range(position - 1):
             tpointer = tpointer.next_node
-            i += 1
+            
         new_node.next_node = tpointer.next_node
         tpointer.next_node = new_node
         self.size += 1
+
+        if new_node.next is None:
+            self.tail = new_node
 
     def remove_first(self):
         if self.is_empty():
